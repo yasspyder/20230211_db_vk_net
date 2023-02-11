@@ -1,0 +1,12 @@
+-- Вариант 1. Таблица подписок на сообщества
+CREATE TABLE subscriptions (
+	user_id INT NOT NULL,
+	subscibed_to_id  INT NOT NULL,
+	created_at TIMESTAMP,
+	PRIMARY KEY (user_id, subscibed_to_id)
+);
+
+-- Вариант 2. Без создания дополнительных таблиц с использованием имеющихся таблиц friendship и communities_users.
+
+ALTER TABLE friendship ADD COLUMN is_subscriber BOOLEAN
+ALTER TABLE communities_users ADD COLUMN is_subscriber BOOLEAN
